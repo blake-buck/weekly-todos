@@ -4,8 +4,12 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { WeekColumnComponent } from './week-column/week-column.component';
 import { WeekPickerComponent } from './week-picker/week-picker.component';
 import { WeekPickerDialogComponent } from './week-picker-dialog/week-picker-dialog.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
+    imports:[
+        CommonModule
+    ],
     declarations:[
         TaskComponent,
         TaskDialogComponent,

@@ -1,8 +1,13 @@
 export interface AppState{
-    nextTaskId: number
-    weeksWithTasksInThem: string[]
-    tasks: Task[],
-    selectedWeek: string
+    nextTaskId: number;
+    weeksWithTasksInThem: string[];
+    tasks: Task[];
+
+    selectedWeek: string;
+
+    sidebarOpen:boolean;
+    weekPickerDialogOpen:boolean;
+    taskDialogOpen:boolean;
 }
 
 export interface Task{
@@ -21,5 +26,8 @@ export const initialState:AppState = {
     nextTaskId:0,
     weeksWithTasksInThem:[],
     tasks:[],
-    selectedWeek:''
+    selectedWeek:'',
+    sidebarOpen:false,
+    weekPickerDialogOpen: false,
+    taskDialogOpen: false
 }

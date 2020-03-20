@@ -1,4 +1,7 @@
 import { Component } from "@angular/core";
+import { selectTaskDialogOpen } from 'src/app/store/app.selectors';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
     selector:'task-dialog',
@@ -6,4 +9,8 @@ import { Component } from "@angular/core";
     styleUrls:['task-dialog.component.scss']
 })
 
-export class TaskDialogComponent{}
+export class TaskDialogComponent{
+    constructor(private store:Store<{app:AppState}>){}
+
+    dialogOpen$ = this.store.select(selectTaskDialogOpen);
+}

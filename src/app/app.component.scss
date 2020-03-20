@@ -1,0 +1,24 @@
+@import 'scss/variables';
+
+header{
+    position: relative;
+    width:100%;
+
+    display:flex;
+    justify-content: center;
+
+    background:$middle;
+
+    i{
+        position: absolute;
+        left:0px;
+
+        top:8px;
+    }
+}
+
+.week-columns{
+    display:flex;
+    min-width: 100vw;
+    overflow: auto;
+}

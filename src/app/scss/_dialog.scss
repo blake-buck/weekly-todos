@@ -1,0 +1,43 @@
+.dialog-backdrop{
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index: $weekPickerDialogZIndex;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0, 0.4);
+
+    display:none;
+    justify-content: center;
+    align-items: center;
+    .dialog-box{
+        background:white;
+        padding:10px;
+        border-radius: 5px;
+
+        min-width:300px;
+
+        header{
+            text-align: center;
+            h2{
+                font-size:1.5em;
+                font-weight: bold;
+            }
+        }
+
+        footer{
+            display:flex;
+            justify-content: flex-end;
+            button{
+                width:100px;
+                margin:5px;
+            }
+        }
+    }
+}
+
+.dialog-backdrop.open{
+    display:flex;
+}

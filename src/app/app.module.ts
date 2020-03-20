@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.reducer';
 import { AppEffects } from './store/app.effects';
 import {EffectsModule} from '@ngrx/effects'
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {EffectsModule} from '@ngrx/effects'
     StoreModule.forRoot({app:appReducer}),
     BrowserModule,
     SidebarModule,
-    WeeklyTasksModule
+    WeeklyTasksModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,17 @@
-task dialog
+<div class='dialog-backdrop' [ngClass]="{'open': dialogOpen$ | async }">
+    <div class='dialog-box'>
+
+        <header>
+            <h2>Task Dialog</h2>
+        </header>
+
+        <main>
+            <p>task data</p>
+        </main>
+
+        <footer>
+            <button class='no-outline' (click)='toggleDialog()'>cancel</button>
+            <button>save</button>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+@import '../../scss/variables';
+
+.sidebar{
+    transition:0.5s;
+    width:250px;
+    background:$darker;
+
+    position:fixed;
+    top:0px;
+    left:-250px;
+    height:100vh;
+
+    z-index: $sidebarZIndex;
+
+    header{
+        display:flex;
+        justify-content: flex-end;
+    }
+}
+
+
+.sidebar.open{
+    transition:0.5s;
+    left:0px;
+}

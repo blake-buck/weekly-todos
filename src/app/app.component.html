@@ -1,5 +1,13 @@
 <sidebar></sidebar>
-<week-picker></week-picker>
-<week-column></week-column>
+
+<header>
+    <i class="material-icons menu" (click)='toggleSidebar()'>menu</i>
+    <week-picker></week-picker>
+</header>
+
+<div class='week-columns'>
+    <week-column *ngFor='let day of daysOfWeek' [dayOfWeek]='day'></week-column>
+</div>
+
 <week-picker-dialog></week-picker-dialog>
 <task-dialog></task-dialog>

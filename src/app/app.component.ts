@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import * as moment from 'moment';
+import { Store } from '@ngrx/store';
+import { AppState } from './store/app.state';
+import { toggleSidebar } from './store/app.actions';
+import { selectSidebarOpen } from './store/app.selectors';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +11,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private store:Store<any>){}
+
+  sidebarOpen$ = this.store.select(selectSidebarOpen)
+  moment = moment;
+
+  currentDay = moment().isoWeekday();
+  currentWeek = moment().isoWeek();
+
+  daysOfWeek = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ]
+
+  toggleSidebar(){
+    this.store.dispatch(toggleSidebar())
+  }
 }

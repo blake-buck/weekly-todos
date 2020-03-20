@@ -1,1 +1,20 @@
-week picker dialog
+<div class='dialog-backdrop' [ngClass]="{'open':dialogOpen$ | async}">
+    <div class='dialog-box'>
+
+        <header>
+            <h2>Date Picker</h2>
+        </header>
+
+        <main>
+            <p>March 2019</p>
+            <div>
+                a bunch of individual days
+            </div>
+        </main>
+
+        <footer>
+            <button class='no-outline' (click)='toggleDialog()'>cancel</button>
+            <button>save</button>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.week-picker{
+    display:flex;
+    align-items: center;
+
+    margin:15px;
+
+    span{
+        font-size: 1.5em;
+        font-weight:bold;
+
+        cursor: pointer;
+    }
+
+    i{
+        margin:5px;
+    }
+}

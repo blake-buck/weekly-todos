@@ -1,2 +1,9 @@
-sidebar
-<sidebar-item></sidebar-item>
+<div class='sidebar' [ngClass]="{'open': sidebarOpen$ | async }">
+    <header>
+        <i (click)='toggleSidebar()' class="material-icons menu">menu</i>
+    </header>
+
+    <div class='sidebar-body'>
+        <sidebar-item></sidebar-item>
+    </div>
+</div>
