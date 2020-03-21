@@ -31,7 +31,7 @@ export class WeekPickerDialogComponent{
         this.store.dispatch(changeSelectedWeekByMonth({changeBy:1}))
     }
 
-    setSelectedWeek(dayObj:{day:string, month:string, year:string}, selectedWeek:string){
+    setSelectedWeek(dayObj:{day:string, month:string, year:string}){
         const {day, month, year} = dayObj;
         console.log(day)
         let week = moment(`${year}-${month}-${day}`)
