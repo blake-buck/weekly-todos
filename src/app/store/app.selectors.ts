@@ -15,3 +15,8 @@ export const selectTaskDialogOpen = createSelector(
     selectState,
     state => state.taskDialogOpen
 )
+
+export const selectSelectedWeek = createSelector(
+    selectState,
+    state => state.selectedWeek
+)

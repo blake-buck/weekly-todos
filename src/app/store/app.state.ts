@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export interface AppState{
     nextTaskId: number;
     weeksWithTasksInThem: string[];
@@ -26,7 +28,7 @@ export const initialState:AppState = {
     nextTaskId:0,
     weeksWithTasksInThem:[],
     tasks:[],
-    selectedWeek:'',
+    selectedWeek:`${moment().isoWeek()}-${moment().year()}`,
     sidebarOpen:false,
     weekPickerDialogOpen: false,
     taskDialogOpen: false

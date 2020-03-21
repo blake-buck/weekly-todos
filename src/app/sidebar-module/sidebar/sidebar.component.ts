@@ -11,7 +11,7 @@ import { toggleSidebar } from 'src/app/store/app.actions';
 })
 
 export class SidebarComponent{
-    constructor(private store:Store<AppState>){}
+    constructor(private store:Store<{app:AppState}>){}
     sidebarOpen$ = this.store.select(selectSidebarOpen);
 
     toggleSidebar(){

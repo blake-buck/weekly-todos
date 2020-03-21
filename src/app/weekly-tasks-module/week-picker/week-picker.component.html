@@ -1,5 +1,5 @@
 <div class='week-picker'>
-    <i class="material-icons">navigate_before</i>
-    <span (click)='toggleDialog()'>Mar 15 - 21, 2019</span>
-    <i class="material-icons">navigate_next</i>
+    <i class="material-icons" (click)='goBackwardOneWeek()'>navigate_before</i>
+    <span (click)='toggleDialog()'>{{selectedWeek$ | async | formatWeek}}</span>
+    <i class="material-icons" (click)='goForwardOneWeek()'>navigate_next</i>
 </div>

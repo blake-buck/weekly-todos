@@ -2,13 +2,21 @@
     <div class='dialog-box'>
 
         <header>
-            <h2>Date Picker</h2>
+            <i class="material-icons" (click)='goBackwardOneMonth()'>navigate_before</i>
+            <h2>{{selectedWeek$ | async | getMonthAndYear}}</h2>
+            <i class="material-icons" (click)='goForwardOneMonth()'>navigate_next</i>
         </header>
 
         <main>
-            <p>March 2019</p>
-            <div>
-                a bunch of individual days
+            <div class='month' *ngIf='selectedWeek$ | async as selectedWeek'>
+                <span class='day-header'>Mo</span>
+                <span class='day-header'>Tu</span>
+                <span class='day-header'>We</span>
+                <span class='day-header'>Th</span>
+                <span class='day-header'>Fr</span>
+                <span class='day-header'>Sa</span>
+                <span class='day-header'>Su</span>
+                <span *ngFor='let dayObj of (selectedWeek | getDaysPipe)' (click)='setSelectedWeek(dayObj)'>{{dayObj.day}}</span>
             </div>
         </main>
 
