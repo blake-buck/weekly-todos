@@ -1,1 +1,12 @@
-task
+<div class='task'>
+    <!-- <span *ngIf='!task.isEditing'>{{task.taskText}}</span> -->
+    <textarea 
+        wtAutofocus
+        [value]='task.taskText' 
+        (keydown)='handleKeydown($event.key, $event.target.value)'
+        (blur)='blur($event.target.value)'
+        [rows]='2'
+        [readonly]='!task.isEditing'
+    ></textarea>
+    <span>{{task.time}}</span>
+</div>

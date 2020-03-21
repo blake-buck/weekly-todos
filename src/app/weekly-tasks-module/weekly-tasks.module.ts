@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { FormatWeekPipe } from './week-picker/format-week.pipe';
 import { GetMonthAndYearPipe } from './week-picker-dialog/get-month-year.pipe';
 import { GetDaysPipe } from './week-picker-dialog/get-days.pipe';
+import { AutofocusDirective } from './task/autofocus.directive';
 
 @NgModule({
     imports:[
@@ -22,7 +23,9 @@ import { GetDaysPipe } from './week-picker-dialog/get-days.pipe';
         
         FormatWeekPipe,
         GetMonthAndYearPipe,
-        GetDaysPipe
+        GetDaysPipe,
+
+        AutofocusDirective
     ],
     exports:[
         WeekColumnComponent,

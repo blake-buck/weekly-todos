@@ -1,6 +1,8 @@
 import { createAction, props } from "@ngrx/store";
+import { Task } from './app.state';
 
-export const addTask = createAction('ADD TASK')
+export const addTask = createAction('ADD TASK', props<{task:Task}>())
+export const changeTask = createAction('CHANGE TASK', props<{task:Task}>())
 
 export const toggleSidebar = createAction('TOGGLE SIDEBAR')
 export const toggleWeekPickerDialog = createAction('TOGGLE WEEK PICKER DIALOG')

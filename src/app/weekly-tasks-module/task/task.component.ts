@@ -1,4 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Task, AppState } from 'src/app/store/app.state';
+import { Store } from '@ngrx/store';
+import { changeTask } from 'src/app/store/app.actions';
 
 @Component({
     selector:'task',
@@ -6,4 +9,20 @@ import { Component } from "@angular/core";
     styleUrls:['task.component.scss']
 })
 
-export class TaskComponent {}
+export class TaskComponent {
+    @Input() task: Task;
+
+    constructor(private store:Store<{app:AppState}>){}
+
+    handleKeydown(key:string, taskText:string){
+        if(key === 'Enter'){
+            this.blur(taskText)
+        }
+    }
+
+    blur(taskText:string){
+        if(this.task.isEditing){
+            this.store.dispatch(changeTask({task: {...this.task, taskText, isEditing:false}}))
+        }
+    }
+}

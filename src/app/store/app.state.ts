@@ -22,6 +22,8 @@ export interface Task{
     taskText: string;
     complete: boolean;
     backgroundColor:string;
+
+    isEditing:boolean;
 }
 
 export const initialState:AppState = {
