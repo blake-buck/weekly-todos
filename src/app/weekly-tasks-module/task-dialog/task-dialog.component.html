@@ -1,17 +1,27 @@
-<div class='dialog-backdrop' [ngClass]="{'open': dialogOpen$ | async }">
-    <div class='dialog-box'>
+<div class='dialog-backdrop' (click)='closeDialog()' [ngClass]="{'open': dialogOpen$ | async }">
+    <div class='dialog-box' (click)='preventDialogClose()' *ngIf='selectedTask$ | async as task'>
 
         <header>
             <h2>Task Dialog</h2>
         </header>
 
         <main>
-            <p>task data</p>
-        </main>
+            <div class='task'>
+                <textarea 
+                    [value]='task.taskText' 
+                    (keydown)='handleKeydown(task, $event)'
+                    (blur)='blur(task, $event.target.value)'
+                    [rows]='2'
+                    class='task-textarea'
+                ></textarea>
+            </div>
 
-        <footer>
-            <button class='no-outline'>cancel</button>
-            <button>save</button>
-        </footer>
+            <div class='complete-checkbox'>
+                <i class='material-icons' *ngIf='task.complete' (click)='toggleComplete(task)'>check_circle</i>
+                <i class='material-icons' *ngIf='!task.complete' (click)='toggleComplete(task)'>check_circle_outline</i>
+                <label>Mark as complete</label>
+            </div>
+
+        </main>
     </div>
 </div>

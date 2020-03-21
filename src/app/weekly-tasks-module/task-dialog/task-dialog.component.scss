@@ -1,0 +1,19 @@
+@import '../../scss/task';
+
+.complete-checkbox{
+    display:flex;
+    align-items: center;
+
+    i{
+        font-size:2em;
+
+        margin-left:  10px;
+        margin-right: 10px;
+    }
+
+    label{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1em;
+    }
+}

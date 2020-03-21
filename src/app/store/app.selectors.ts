@@ -32,3 +32,8 @@ export const selectTasksForWeekAndDay = (day:string) => createSelector(
     selectSelectedWeek,
     (tasks, selectedWeek) => tasks.filter(task => task.week === selectedWeek && task.day === day)
 )
+
+export const selectSelectedTask = createSelector(
+    selectState,
+    state => state.selectedTask
+)

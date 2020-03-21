@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { Task, AppState } from 'src/app/store/app.state';
 import { Store } from '@ngrx/store';
-import { changeTask } from 'src/app/store/app.actions';
+import { changeTask, toggleTaskDialog, setSelectedTask } from 'src/app/store/app.actions';
 
 @Component({
     selector:'task',
@@ -23,6 +23,13 @@ export class TaskComponent {
     blur(taskText:string){
         if(this.task.isEditing){
             this.store.dispatch(changeTask({task: {...this.task, taskText, isEditing:false}}))
+        }
+    }
+
+    openDialog(){
+        if(!this.task.isEditing){
+            this.store.dispatch(setSelectedTask({task:this.task}))
+            this.store.dispatch(toggleTaskDialog());
         }
     }
 }

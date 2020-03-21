@@ -1,4 +1,4 @@
-<div class='task'>
+<div class='task' [ngClass]="{'written':!task.isEditing, 'complete':task.complete}" (click)='openDialog()'>
     <!-- <span *ngIf='!task.isEditing'>{{task.taskText}}</span> -->
     <textarea 
         wtAutofocus
@@ -7,6 +7,7 @@
         (blur)='blur($event.target.value)'
         [rows]='2'
         [readonly]='!task.isEditing'
+        class='task-textarea'
     ></textarea>
     <span>{{task.time}}</span>
 </div>

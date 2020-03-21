@@ -1,13 +1,1 @@
-.task{
-    padding:5px;
-    margin:5px;
-    border:1px solid black;
-
-    background:white;
-
-    textarea{
-        border:none;
-        outline:none;
-        resize: none;
-    }
-}
+@import '../../scss/task';

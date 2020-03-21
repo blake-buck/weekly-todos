@@ -1,0 +1,27 @@
+.task{
+    padding:5px;
+    margin:5px;
+    border:1px solid black;
+
+    background:white;
+
+    textarea{
+        border:none;
+        outline:none;
+        resize: none;
+    }
+}
+
+.written{
+    cursor: default;
+    textarea{
+        cursor: default;
+    }
+}
+
+.complete{
+    opacity:0.6;
+    textarea{
+        opacity: 0.6;
+    }
+}

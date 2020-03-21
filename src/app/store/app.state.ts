@@ -6,6 +6,7 @@ export interface AppState{
     tasks: Task[];
 
     selectedWeek: string;
+    selectedTask: Task | null;
 
     sidebarOpen:boolean;
     weekPickerDialogOpen:boolean;
@@ -31,6 +32,7 @@ export const initialState:AppState = {
     weeksWithTasksInThem:[],
     tasks:[],
     selectedWeek:`${moment().isoWeek()}-${moment().year()}`,
+    selectedTask: null,
     sidebarOpen:false,
     weekPickerDialogOpen: false,
     taskDialogOpen: false
