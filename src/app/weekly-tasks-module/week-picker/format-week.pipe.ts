@@ -1,20 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment'
+import { splitSelectedWeek } from 'src/app/utils';
 
 @Pipe({name:'formatWeek'})
 
 export class FormatWeekPipe implements PipeTransform{
     transform(value:string){
-        let splitValue = value.split('-');
-        let isoWeek = splitValue[0];
-        let year = splitValue[1];
+        const {isoWeek, year} = splitSelectedWeek(value);
         let currentWeek = moment().isoWeek(+isoWeek).year(+year);
 
         let firstDayOfWeek = moment(currentWeek).weekday(1);
         let lastDayOfWeek = moment(currentWeek).weekday(7);
 
 
-        // handles situations involving weeks starting in december and ending in february
+        // handles situations involving weeks starting in december and ending in january
         if(firstDayOfWeek.year() !== lastDayOfWeek.year()){
             return `${firstDayOfWeek.format('MMM DD, YYYY')} - ${lastDayOfWeek.format('MMM DD, YYYY')}`
         }

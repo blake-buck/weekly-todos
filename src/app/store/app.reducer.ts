@@ -1,25 +1,7 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { initialState, AppState } from './app.state';
 import { toggleSidebar, toggleWeekPickerDialog, changeSelectedWeek, changeSelectedWeekByMonth, setSelectedWeek } from './app.actions';
-import * as moment from 'moment';
-
-function changeWeek(selectedWeek:string, changeBy:number){
-    let splitValue = selectedWeek.split('-');
-    let isoWeek = splitValue[0];
-    let year = splitValue[1];
-    let currentWeek = moment().isoWeek(+isoWeek).year(+year);
-    let nextWeek = currentWeek.isoWeek(+isoWeek + changeBy)
-    return `${nextWeek.isoWeek()}-${nextWeek.year()}`
-}
-
-function changeMonth(selectedWeek:string, changeBy:number){
-    let splitValue = selectedWeek.split('-');
-    let isoWeek = splitValue[0];
-    let year = splitValue[1];
-    let currentWeek = moment().isoWeek(+isoWeek).year(+year);
-    let nextWeek = currentWeek.month(currentWeek.month() + changeBy)
-    return `${nextWeek.isoWeek()}-${nextWeek.year()}`
-}
+import { changeWeek, changeMonth } from '../utils';
 
 const _appReducer = createReducer(
     initialState,
