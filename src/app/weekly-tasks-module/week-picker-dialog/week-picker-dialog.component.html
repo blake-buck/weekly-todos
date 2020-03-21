@@ -1,5 +1,5 @@
-<div class='dialog-backdrop' [ngClass]="{'open':dialogOpen$ | async}">
-    <div class='dialog-box'>
+<div class='dialog-backdrop' [ngClass]="{'open':dialogOpen$ | async}" (click)='closeDialog()'>
+    <div class='dialog-box' (click)='preventDialogClose()'>
 
         <header>
             <i class="material-icons" (click)='goBackwardOneMonth()'>navigate_before</i>
@@ -20,9 +20,5 @@
             </div>
         </main>
 
-        <footer>
-            <button class='no-outline' (click)='toggleDialog()'>cancel</button>
-            <button>save</button>
-        </footer>
     </div>
 </div>

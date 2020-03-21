@@ -3,8 +3,12 @@
 header{
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom:10px;
+    i{
+        margin:5px;
+        font-size:2.5em;
+    }
 }
 
 main{
@@ -13,6 +17,8 @@ main{
         display:grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+        cursor: default;
 
         .day-header{
             background:$darkest;

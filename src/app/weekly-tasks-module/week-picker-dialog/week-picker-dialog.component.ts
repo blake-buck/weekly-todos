@@ -19,9 +19,20 @@ export class WeekPickerDialogComponent{
     selectedWeek$ = this.store.select(selectSelectedWeek);
     dialogOpen$ = this.store.select(selectWeekPickerDialogOpen);
 
-    toggleDialog(){
-        this.store.dispatch(toggleWeekPickerDialog())
+    canCloseDialog = true;
+    // if user clicks inside dialog, prevent dialog from closing
+    preventDialogClose(){
+        this.canCloseDialog = false;
+        setTimeout(() => this.canCloseDialog = true, 200)
     }
+    // if user clicks outside dialog, close dialog
+    closeDialog(){
+        if(this.canCloseDialog){
+            this.store.dispatch(toggleWeekPickerDialog())
+        }
+    }
+
+    
 
     goBackwardOneMonth(){
         this.store.dispatch(changeSelectedWeekByMonth({changeBy:-1}))
