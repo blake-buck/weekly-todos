@@ -37,3 +37,13 @@ export const selectSelectedTask = createSelector(
     selectState,
     state => state.selectedTask
 )
+
+export const selectTaskById = (id:number) => createSelector(
+    selectState,
+    state => state.tasks.find(task => task.id === id)
+)
+
+export const selectTasksByIds = (ids: number[]) => createSelector(
+    selectState,
+    state => state.tasks.filter(task => ids.includes(task.id))
+)

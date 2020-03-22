@@ -1,7 +1,13 @@
 <div class='week-column'>
     <header>{{dayOfWeek}}</header>
     <button (click)='addTask()'>Add Task</button>
-    <div class='week-column-body'>
-        <task *ngFor='let task of tasks$ | async' [task]='task'></task>
+    <div 
+        *ngIf='tasks$ | async as tasks' 
+        class='week-column-body' 
+
+        dropTarget
+        [dayOfWeek]='dayOfWeek'
+    >
+        <task *ngFor='let task of tasks' [task]='task'></task>
     </div>
 </div>

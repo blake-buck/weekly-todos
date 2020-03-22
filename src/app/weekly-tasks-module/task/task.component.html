@@ -1,6 +1,7 @@
-<div class='task' [ngClass]="{'written':!task.isEditing, 'complete':task.complete}" (click)='openDialog()'>
+<div class='task' [ngClass]="{'written':!task.isEditing, 'complete':task.complete}" dragAndDrop [attr.data-id]='task.id' (click)='openDialog()'>
     <!-- <span *ngIf='!task.isEditing'>{{task.taskText}}</span> -->
     <textarea 
+        [attr.data-id]='task.id'
         wtAutofocus
         [value]='task.taskText' 
         (keydown)='handleKeydown($event.key, $event.target.value)'

@@ -9,6 +9,8 @@ import { FormatWeekPipe } from './week-picker/format-week.pipe';
 import { GetMonthAndYearPipe } from './week-picker-dialog/get-month-year.pipe';
 import { GetDaysPipe } from './week-picker-dialog/get-days.pipe';
 import { AutofocusDirective } from './task/autofocus.directive';
+import { DragAndDropDirective } from './task/drag-and-drop.directive';
+import { DropTargetDirective } from './week-column/drop-target.directive';
 
 @NgModule({
     imports:[
@@ -25,7 +27,9 @@ import { AutofocusDirective } from './task/autofocus.directive';
         GetMonthAndYearPipe,
         GetDaysPipe,
 
-        AutofocusDirective
+        AutofocusDirective,
+        DragAndDropDirective,
+        DropTargetDirective
     ],
     exports:[
         WeekColumnComponent,
