@@ -1,10 +1,6 @@
 <div class='dialog-backdrop' (click)='closeDialog()' [ngClass]="{'open': dialogOpen$ | async }">
     <div class='dialog-box' (click)='preventDialogClose()' *ngIf='selectedTask$ | async as task'>
 
-        <header>
-            <h2>Task Dialog</h2>
-        </header>
-
         <main>
             <div class='task'>
                 <textarea 

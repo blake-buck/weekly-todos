@@ -1,6 +1,7 @@
 @import '../../scss/variables';
 
 .sidebar{
+    overflow:auto;
     transition:0.5s;
     width:250px;
     background:$darker;
