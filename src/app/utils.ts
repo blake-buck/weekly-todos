@@ -30,3 +30,10 @@ export function changeMonth(selectedWeek:string, changeBy:number){
     
     return `${nextWeek.isoWeek()}-${nextWeek.year()}`
 }
+
+export const BACKGROUND_COLORS = {
+    GREEN:'#5cb85c',
+    YELLOW:'#f0ad4e',
+    RED:'#d9534f',
+    CYAN:'#5bc0de'
+}

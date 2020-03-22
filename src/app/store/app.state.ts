@@ -18,7 +18,6 @@ export interface Task{
 
     week:string;
     day:string;
-    time:string;
     
     taskText: string;
     complete: boolean;

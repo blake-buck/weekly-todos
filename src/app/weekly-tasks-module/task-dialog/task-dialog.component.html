@@ -16,10 +16,21 @@
                 ></textarea>
             </div>
 
-            <div class='complete-checkbox'>
-                <i class='material-icons' *ngIf='task.complete' (click)='toggleComplete(task)'>check_circle</i>
-                <i class='material-icons' *ngIf='!task.complete' (click)='toggleComplete(task)'>check_circle_outline</i>
+            <div class='complete-checkbox' (click)='toggleComplete(task)'>
                 <label>Mark as complete</label>
+                <i class='material-icons' *ngIf='task.complete'>check_circle</i>
+                <i class='material-icons' *ngIf='!task.complete'>check_circle_outline</i>
+            </div>
+
+            <div class='background-color-select' [ngClass]="{'display':displaySelect}" >
+                <span class='select'(click)='toggleDisplaySelect()'><p>Select a background color</p> <i class='material-icons'>keyboard_arrow_down</i></span>
+                <div>
+                    <span (click)='selectBackgroundColor(task, "white")' [ngStyle]='{"background":"white"}'>None</span>
+                    <span (click)='selectBackgroundColor(task, BACKGROUND_COLORS.GREEN)' [ngStyle]='{"background":BACKGROUND_COLORS.GREEN}'>Green</span>
+                    <span (click)='selectBackgroundColor(task, BACKGROUND_COLORS.YELLOW)' [ngStyle]='{"background":BACKGROUND_COLORS.YELLOW}'>Yellow</span>
+                    <span (click)='selectBackgroundColor(task, BACKGROUND_COLORS.RED)' [ngStyle]='{"background":BACKGROUND_COLORS.RED}'>Red</span>
+                    <span (click)='selectBackgroundColor(task, BACKGROUND_COLORS.CYAN)' [ngStyle]='{"background":BACKGROUND_COLORS.CYAN}'>Cyan</span>
+                </div>
             </div>
 
         </main>

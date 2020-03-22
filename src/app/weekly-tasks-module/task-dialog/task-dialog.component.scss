@@ -1,19 +1,71 @@
 @import '../../scss/task';
 
 .complete-checkbox{
+    margin:5px;
     display:flex;
     align-items: center;
+    justify-content: space-between;
+    cursor:pointer;
 
     i{
         font-size:2em;
-
-        margin-left:  10px;
-        margin-right: 10px;
     }
 
     label{
         text-transform: uppercase;
         font-weight: bold;
         font-size: 1em;
+        cursor:pointer;
+    }
+}
+
+.background-color-select{
+    display:flex;
+    flex-direction: column;
+    position:relative;
+
+    cursor:pointer;
+
+    div{
+        display:none;
+    }
+    span.select{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        text-transform: uppercase;
+        font-weight: bold;
+        i{
+            font-size:2em;
+        }
+        margin:5px;
+    }
+}
+
+.background-color-select.display{
+    
+    div{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+
+        
+
+        span{
+            border:1px solid black;
+            width:275px;
+            font-size:1.5em;
+            padding:10px;
+        }
+        span:hover{
+            font-weight:bold;
+        }
+        span:first-of-type{
+            border-radius:5px 5px 0px 0px;
+        }
+
+        span:last-of-type{
+            border-radius:0px 0px 5px 5px;
+        }
     }
 }

@@ -3,6 +3,7 @@ import { selectTaskDialogOpen, selectSelectedTask } from 'src/app/store/app.sele
 import { Store } from '@ngrx/store';
 import { AppState, Task } from 'src/app/store/app.state';
 import { changeTask, setSelectedTask, toggleTaskDialog } from 'src/app/store/app.actions';
+import { BACKGROUND_COLORS } from 'src/app/utils';
 
 @Component({
     selector:'task-dialog',
@@ -15,6 +16,7 @@ export class TaskDialogComponent{
 
     dialogOpen$ = this.store.select(selectTaskDialogOpen);
     selectedTask$ = this.store.select(selectSelectedTask);
+    BACKGROUND_COLORS = BACKGROUND_COLORS;
 
     handleKeydown(task:Task, event:any){
         if(event.key === 'Enter'){
@@ -35,6 +37,17 @@ export class TaskDialogComponent{
         this.store.dispatch(setSelectedTask({task: {...newTask}}))
     }
 
+    displaySelect = false;
+    toggleDisplaySelect(){
+        this.displaySelect = !this.displaySelect
+    }
+
+    selectBackgroundColor(task:Task, color:string){
+        const newTask = {...task, backgroundColor:color}
+        this.store.dispatch(changeTask({task: {...newTask}}))
+        this.toggleDisplaySelect()
+    }
+
     canCloseDialog = true;
     // if user clicks inside dialog, prevent dialog from closing
     preventDialogClose(){
@@ -45,6 +58,9 @@ export class TaskDialogComponent{
     closeDialog(){
         if(this.canCloseDialog){
             this.store.dispatch(toggleTaskDialog())
+            if(this.displaySelect){
+                this.toggleDisplaySelect()
+            }
         }
     }
 }

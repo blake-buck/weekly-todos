@@ -1,6 +1,7 @@
-<div class='task' [ngClass]="{'written':!task.isEditing, 'complete':task.complete}" dragAndDrop [attr.data-id]='task.id' (click)='openDialog()'>
+<div class='task' [ngStyle]='{"background":task.backgroundColor}' [ngClass]="{'written':!task.isEditing, 'complete':task.complete}" dragAndDrop [attr.data-id]='task.id' (click)='openDialog()'>
     <!-- <span *ngIf='!task.isEditing'>{{task.taskText}}</span> -->
     <textarea 
+        [ngStyle]='{"background":task.backgroundColor}'
         [attr.data-id]='task.id'
         wtAutofocus
         [value]='task.taskText' 
