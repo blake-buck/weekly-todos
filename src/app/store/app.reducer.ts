@@ -17,7 +17,12 @@ const _appReducer = createReducer(
     on(setSelectedWeek, (state, action) => ({...state, selectedWeek:action.week})),
 
     // Task Actions
-    on(addTask, (state, action) => ({...state, tasks:[...state.tasks, {...action.task, id:state.nextTaskId, week:state.selectedWeek}], nextTaskId:state.nextTaskId+1})),
+    on(addTask, (state, action) => ({
+        ...state, 
+        tasks:[...state.tasks, {...action.task, id:state.nextTaskId, week:state.selectedWeek}],
+        weeksWithTasksInThem:state.weeksWithTasksInThem.includes(state.selectedWeek) ? state.weeksWithTasksInThem : [...state.weeksWithTasksInThem, state.selectedWeek],
+        nextTaskId:state.nextTaskId+1
+    })),
     on(changeTask, (state, action) => ({
         ...state,
         tasks:state.tasks.map(task => {

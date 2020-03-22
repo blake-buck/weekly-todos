@@ -1,9 +1,10 @@
 <div class='sidebar' [ngClass]="{'open': sidebarOpen$ | async }">
     <header>
+        <span>Weeks with Tasks</span>
         <i (click)='toggleSidebar()' class="material-icons menu">menu</i>
     </header>
 
     <div class='sidebar-body'>
-        <sidebar-item></sidebar-item>
+        <sidebar-item *ngFor='let week of weeksWithTasksInThem$ | async | orderByDate' [week]='week'></sidebar-item>
     </div>
 </div>

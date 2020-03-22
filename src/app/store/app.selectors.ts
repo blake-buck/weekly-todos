@@ -47,3 +47,8 @@ export const selectTasksByIds = (ids: number[]) => createSelector(
     selectState,
     state => state.tasks.filter(task => ids.includes(task.id))
 )
+
+export const selectWeeksWithTasksInThem = createSelector(
+    selectState,
+    state => state.weeksWithTasksInThem
+)

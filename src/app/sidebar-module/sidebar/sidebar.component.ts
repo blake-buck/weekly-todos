@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { AppState } from 'src/app/store/app.state';
 import { Store } from '@ngrx/store';
-import { selectSidebarOpen } from 'src/app/store/app.selectors';
+import { selectSidebarOpen, selectWeeksWithTasksInThem } from 'src/app/store/app.selectors';
 import { toggleSidebar } from 'src/app/store/app.actions';
 
 @Component({
@@ -13,6 +13,7 @@ import { toggleSidebar } from 'src/app/store/app.actions';
 export class SidebarComponent{
     constructor(private store:Store<{app:AppState}>){}
     sidebarOpen$ = this.store.select(selectSidebarOpen);
+    weeksWithTasksInThem$ = this.store.select(selectWeeksWithTasksInThem);
 
     toggleSidebar(){
         this.store.dispatch(toggleSidebar());

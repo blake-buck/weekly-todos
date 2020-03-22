@@ -36,7 +36,9 @@ import { DropTargetDirective } from './week-column/drop-target.directive';
         WeekPickerComponent,
 
         WeekPickerDialogComponent,
-        TaskDialogComponent
+        TaskDialogComponent,
+
+        FormatWeekPipe
     ]
 })
 
