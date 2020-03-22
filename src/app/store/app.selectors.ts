@@ -1,7 +1,7 @@
 import { AppState } from "./app.state";
 import { createSelector } from '@ngrx/store';
 
-const selectState = (state:{app:AppState}) => state.app;
+export const selectState = (state:{app:AppState}) => state.app;
 
 export const selectSidebarOpen = createSelector(
     selectState,

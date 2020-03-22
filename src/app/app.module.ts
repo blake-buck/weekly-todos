@@ -9,6 +9,7 @@ import { appReducer } from './store/app.reducer';
 import { AppEffects } from './store/app.effects';
 import {EffectsModule} from '@ngrx/effects'
 import { CommonModule } from '@angular/common';
+import { AppService } from './store/app.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CommonModule } from '@angular/common';
     WeeklyTasksModule,
     CommonModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

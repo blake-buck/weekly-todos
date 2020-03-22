@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Store } from '@ngrx/store';
 import { AppState } from './store/app.state';
-import { toggleSidebar } from './store/app.actions';
+import { toggleSidebar, sendStateToStorage, getStateFromStorage } from './store/app.actions';
 import { selectSidebarOpen } from './store/app.selectors';
 
 @Component({
@@ -12,6 +12,10 @@ import { selectSidebarOpen } from './store/app.selectors';
 })
 export class AppComponent {
   constructor(private store:Store<any>){}
+
+  ngOnInit(){
+    this.store.dispatch(getStateFromStorage())
+  }
 
   sidebarOpen$ = this.store.select(selectSidebarOpen)
   moment = moment;
@@ -32,4 +36,5 @@ export class AppComponent {
   toggleSidebar(){
     this.store.dispatch(toggleSidebar())
   }
+
 }
