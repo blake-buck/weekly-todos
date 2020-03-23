@@ -14,15 +14,18 @@ export class TaskComponent {
 
     constructor(private store:Store<AppStore>){}
 
-    handleKeydown(key:string, taskText:string){
-        if(key === 'Enter'){
-            this.blur(taskText)
+    handleKeydown(event:KeyboardEvent){
+        if(event.key === 'Enter'){
+            event.preventDefault();
+            let target = <HTMLInputElement>event.target
+            this.blur(target.value)
         }
     }
 
     blur(taskText:string){
         if(this.task.isEditing){
-            this.store.dispatch(changeTask({task: {...this.task, taskText, isEditing:false}}))
+            // wrapping this with a setTimeout prevents the "Expression has changed after it was checked" error
+            setTimeout(() => this.store.dispatch(changeTask({task: {...this.task, taskText, isEditing:false}})), 0)
         }
     }
 

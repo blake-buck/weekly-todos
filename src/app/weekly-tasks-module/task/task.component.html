@@ -5,7 +5,7 @@
         [attr.data-id]='task.id'
         wtAutofocus
         [value]='task.taskText' 
-        (keydown)='handleKeydown($event.key, $event.target.value)'
+        (keydown)='handleKeydown($event)'
         (blur)='blur($event.target.value)'
         [rows]='2'
         [readonly]='!task.isEditing'
