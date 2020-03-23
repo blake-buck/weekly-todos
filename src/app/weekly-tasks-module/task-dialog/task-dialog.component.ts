@@ -18,10 +18,11 @@ export class TaskDialogComponent{
     selectedTask$ = this.store.select(selectSelectedTask);
     BACKGROUND_COLORS = BACKGROUND_COLORS;
 
-    handleKeydown(task:Task, event:any){
+    handleKeydown(task:Task, event:KeyboardEvent){
         if(event.key === 'Enter'){
             event.preventDefault();
-            this.blur(task, event.target.value)
+            let target = <HTMLInputElement>event.target;
+            this.blur(task, target.value)
         }
     }
 
