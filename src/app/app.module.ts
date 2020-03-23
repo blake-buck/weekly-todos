@@ -10,6 +10,8 @@ import { AppEffects } from './store/app.effects';
 import {EffectsModule} from '@ngrx/effects'
 import { CommonModule } from '@angular/common';
 import { AppService } from './store/app.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AppService } from './store/app.service';
     BrowserModule,
     SidebarModule,
     WeeklyTasksModule,
-    CommonModule
+    CommonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
