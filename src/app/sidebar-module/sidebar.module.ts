@@ -3,17 +3,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {SidebarItemComponent} from './sidebar-item/sidebar-item.component';
 import { CommonModule } from '@angular/common';
 import { WeeklyTasksModule } from '../weekly-tasks-module/weekly-tasks.module';
-import { OrderByDatePipe } from './sidebar/orderByDate.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports:[
         CommonModule,
-        WeeklyTasksModule
+        SharedModule
     ],
     declarations:[
         SidebarComponent, 
-        SidebarItemComponent,
-        OrderByDatePipe
+        SidebarItemComponent
     ],
     exports:[
         SidebarComponent

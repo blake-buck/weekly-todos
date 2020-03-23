@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { AppService } from './store/app.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from '../environments/environment';
     SidebarModule,
     WeeklyTasksModule,
     CommonModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    SharedModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

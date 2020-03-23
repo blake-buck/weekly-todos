@@ -5,16 +5,12 @@ import { WeekColumnComponent } from './week-column/week-column.component';
 import { WeekPickerComponent } from './week-picker/week-picker.component';
 import { WeekPickerDialogComponent } from './week-picker-dialog/week-picker-dialog.component';
 import { CommonModule } from '@angular/common';
-import { FormatWeekPipe } from './week-picker/format-week.pipe';
-import { GetMonthAndYearPipe } from './week-picker-dialog/get-month-year.pipe';
-import { GetDaysPipe } from './week-picker-dialog/get-days.pipe';
-import { AutofocusDirective } from './task/autofocus.directive';
-import { DragAndDropDirective } from './task/drag-and-drop.directive';
-import { DropTargetDirective } from './week-column/drop-target.directive';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports:[
-        CommonModule
+        CommonModule,
+        SharedModule
     ],
     declarations:[
         TaskComponent,
@@ -22,23 +18,13 @@ import { DropTargetDirective } from './week-column/drop-target.directive';
         WeekColumnComponent,
         WeekPickerComponent,
         WeekPickerDialogComponent,
-        
-        FormatWeekPipe,
-        GetMonthAndYearPipe,
-        GetDaysPipe,
-
-        AutofocusDirective,
-        DragAndDropDirective,
-        DropTargetDirective
     ],
     exports:[
         WeekColumnComponent,
         WeekPickerComponent,
 
         WeekPickerDialogComponent,
-        TaskDialogComponent,
-
-        FormatWeekPipe
+        TaskDialogComponent
     ]
 })
 
