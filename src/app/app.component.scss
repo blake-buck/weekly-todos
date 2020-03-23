@@ -4,17 +4,10 @@ header{
     position: relative;
     width:100%;
 
-    display:flex;
-    justify-content: center;
-
+    display:grid;
+    grid-template-columns: 44px auto;
+    align-items:center;
     background:$middle;
-
-    i{
-        position: absolute;
-        left:0px;
-
-        top:13px;
-    }
 }
 
 .week-columns{
