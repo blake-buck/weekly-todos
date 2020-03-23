@@ -4,6 +4,7 @@ import { Task, AppState } from './app.state';
 export const addTask = createAction('ADD TASK', props<{task:Task}>());
 export const changeTask = createAction('CHANGE TASK', props<{task:Task}>());
 export const setSelectedTask = createAction('SET SELECTED TASK', props<{task:Task | null}>());
+export const deleteTask = createAction('DELETE TASK', props<{taskId:number}>());
 
 export const toggleSidebar = createAction('TOGGLE SIDEBAR');
 export const toggleWeekPickerDialog = createAction('TOGGLE WEEK PICKER DIALOG');

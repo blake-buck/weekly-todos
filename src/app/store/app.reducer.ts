@@ -1,6 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { initialState, AppState } from './app.state';
-import { toggleSidebar, toggleWeekPickerDialog, changeSelectedWeek, changeSelectedWeekByMonth, setSelectedWeek, addTask, changeTask, toggleTaskDialog, setSelectedTask, getStateFromStorageSuccess } from './app.actions';
+import { toggleSidebar, toggleWeekPickerDialog, changeSelectedWeek, changeSelectedWeekByMonth, setSelectedWeek, addTask, changeTask, toggleTaskDialog, setSelectedTask, getStateFromStorageSuccess, deleteTask } from './app.actions';
 import { changeWeek, changeMonth } from '../utils';
 
 const _appReducer = createReducer(
@@ -36,6 +36,16 @@ const _appReducer = createReducer(
         })
     })),
     on(setSelectedTask, (state, action) => ({...state, selectedTask:action.task})),
+    on(deleteTask, (state, action) => ({
+        ...state, 
+        taskDialogOpen:false,
+        tasks: state.tasks.filter(task => {
+            if(task.id === action.taskId){
+                return false
+            }
+            return true
+        })
+    }))
 )
 
 export function appReducer(state:AppState, action:Action){

@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { selectTaskDialogOpen, selectSelectedTask } from 'src/app/store/app.selectors';
 import { Store } from '@ngrx/store';
 import { AppState, Task } from 'src/app/store/app.state';
-import { changeTask, setSelectedTask, toggleTaskDialog } from 'src/app/store/app.actions';
+import { changeTask, setSelectedTask, toggleTaskDialog, deleteTask } from 'src/app/store/app.actions';
 import { BACKGROUND_COLORS } from 'src/app/utils';
 
 @Component({
@@ -46,6 +46,10 @@ export class TaskDialogComponent{
         const newTask = {...task, backgroundColor:color}
         this.store.dispatch(changeTask({task: {...newTask}}))
         this.toggleDisplaySelect()
+    }
+
+    deleteTask(taskId:number){
+        this.store.dispatch(deleteTask({taskId}))
     }
 
     canCloseDialog = true;
