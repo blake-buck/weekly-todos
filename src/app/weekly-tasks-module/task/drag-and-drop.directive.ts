@@ -17,28 +17,5 @@ export class DragAndDropDirective{
         element.ondragstart = e => {
             e.dataTransfer.setData('text/plain', e.target.getAttribute('data-id'))
         }
-        
-        // element.ondragover = e => {
-        //     e.preventDefault()
-        // }
-        // element.ondrop = e => {
-        //     console.log('NO, MY DROP')
-        //     let draggedTargetId = +e.dataTransfer.getData('text/plain');
-        //     let droppedTargetId = +e.target.getAttribute('data-id');
-
-        //     store
-        //         .select(
-        //             selectTasksByIds([draggedTargetId, droppedTargetId])
-        //         )
-        //         .pipe(
-        //             first()
-        //         )
-        //         .subscribe(tasks => {
-        //             let draggedTargetTask = tasks.find(task => task.id === draggedTargetId)
-        //             let droppedTargetTask = tasks.find(task => task.id === droppedTargetId)
-
-        //             store.dispatch(changeTask({task: {...draggedTargetTask, day:droppedTargetTask.day}}))
-        //         })
-        // }
     }
 }

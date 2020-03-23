@@ -7,7 +7,7 @@ import { Directive, ElementRef } from '@angular/core';
 export class AutofocusDirective{
     constructor(el:ElementRef){
         if(!el.nativeElement.disabled){
-            setTimeout(() => el.nativeElement.focus(), 0)
+            setTimeout(() => el.nativeElement.focus({preventScroll:true}), 0)
         }
     }
 }

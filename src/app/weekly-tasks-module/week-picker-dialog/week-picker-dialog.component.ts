@@ -48,6 +48,7 @@ export class WeekPickerDialogComponent{
         if(day){
             let week = moment(`${year}-${month}-${day}`)
             this.store.dispatch(setSelectedWeek({week:`${week.isoWeek()}-${week.year()}`}))
+            this.closeDialog();
         }
     }
 }
