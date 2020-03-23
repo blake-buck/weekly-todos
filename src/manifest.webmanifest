@@ -1,8 +1,8 @@
 {
   "name": "weekly-todos",
   "short_name": "weekly-todos",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#333333",
+  "background_color": "#eeeeee",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
