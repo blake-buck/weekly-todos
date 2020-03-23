@@ -1,5 +1,4 @@
 .week-column{
-    min-height: 90vh;
     min-width:250px;
     
     margin:5px;
@@ -20,8 +19,8 @@
         width:100%;
     }
     .week-column-body{
-        height:100vh;
-        max-height:100vh;
+        height:73vh;
+        max-height:73vh;
         overflow:auto;
     }
 }
