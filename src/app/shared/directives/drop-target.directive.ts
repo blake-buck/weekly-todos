@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
+import { AppStore } from 'src/app/store/app.state';
 import { selectTaskById } from 'src/app/store/app.selectors';
 import { first } from 'rxjs/operators';
 import { changeTask } from 'src/app/store/app.actions';
@@ -12,7 +12,7 @@ import { changeTask } from 'src/app/store/app.actions';
 export class DropTargetDirective{
     @Input() dayOfWeek:string;
 
-    constructor(private el:ElementRef, private store:Store<{app:AppState}>){}
+    constructor(private el:ElementRef, private store:Store<AppStore>){}
 
     ngOnInit(){
         let element = this.el.nativeElement;

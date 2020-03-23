@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
+import { AppStore } from 'src/app/store/app.state';
 import { setSelectedWeek } from 'src/app/store/app.actions';
 
 @Component({
@@ -14,7 +14,7 @@ import { setSelectedWeek } from 'src/app/store/app.actions';
 export class SidebarItemComponent{
     @Input() week:string;
 
-    constructor(private store:Store<{app:AppState}>){}
+    constructor(private store:Store<AppStore>){}
 
     selectWeek(week:string){
         this.store.dispatch(setSelectedWeek({week}))

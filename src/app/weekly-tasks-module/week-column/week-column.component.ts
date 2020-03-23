@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { AppState } from 'src/app/store/app.state';
+import { AppStore } from 'src/app/store/app.state';
 import { Store } from '@ngrx/store';
 import { addTask } from 'src/app/store/app.actions';
 import { selectTasksForWeekAndDay } from 'src/app/store/app.selectors';
@@ -14,7 +14,7 @@ export class WeekColumnComponent{
     @Input() dayOfWeek:string;
     tasks$ 
 
-    constructor(private store:Store<{app:AppState}>){}
+    constructor(private store:Store<AppStore>){}
 
     ngOnInit(){
         this.tasks$ = this.store.select(selectTasksForWeekAndDay(this.dayOfWeek))

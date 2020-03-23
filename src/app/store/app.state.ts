@@ -26,6 +26,10 @@ export interface Task{
     isEditing:boolean;
 }
 
+export interface AppStore{
+    app:AppState
+}
+
 export const initialState:AppState = {
     nextTaskId:0,
     weeksWithTasksInThem:[],

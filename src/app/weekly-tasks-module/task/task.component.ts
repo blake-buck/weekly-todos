@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Task, AppState } from 'src/app/store/app.state';
+import { Task, AppStore } from 'src/app/store/app.state';
 import { Store } from '@ngrx/store';
 import { changeTask, toggleTaskDialog, setSelectedTask } from 'src/app/store/app.actions';
 
@@ -12,7 +12,7 @@ import { changeTask, toggleTaskDialog, setSelectedTask } from 'src/app/store/app
 export class TaskComponent {
     @Input() task: Task;
 
-    constructor(private store:Store<{app:AppState}>){}
+    constructor(private store:Store<AppStore>){}
 
     handleKeydown(key:string, taskText:string){
         if(key === 'Enter'){

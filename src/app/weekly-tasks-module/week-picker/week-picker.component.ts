@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import { toggleWeekPickerDialog, changeSelectedWeek } from 'src/app/store/app.actions';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
+import { AppState, AppStore } from 'src/app/store/app.state';
 import { selectSelectedWeek } from 'src/app/store/app.selectors';
 
 @Component({
@@ -11,7 +11,7 @@ import { selectSelectedWeek } from 'src/app/store/app.selectors';
 })
 
 export class WeekPickerComponent{
-    constructor(private store:Store<{app:AppState}>){}
+    constructor(private store:Store<AppStore>){}
 
     selectedWeek$ = this.store.select(selectSelectedWeek);
 

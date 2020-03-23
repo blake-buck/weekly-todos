@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { selectTaskDialogOpen, selectSelectedTask } from 'src/app/store/app.selectors';
 import { Store } from '@ngrx/store';
-import { AppState, Task } from 'src/app/store/app.state';
+import { Task, AppStore } from 'src/app/store/app.state';
 import { changeTask, setSelectedTask, toggleTaskDialog, deleteTask } from 'src/app/store/app.actions';
 import { BACKGROUND_COLORS } from 'src/app/utils';
 
@@ -12,7 +12,7 @@ import { BACKGROUND_COLORS } from 'src/app/utils';
 })
 
 export class TaskDialogComponent{
-    constructor(private store:Store<{app:AppState}>){}
+    constructor(private store:Store<AppStore>){}
 
     dialogOpen$ = this.store.select(selectTaskDialogOpen);
     selectedTask$ = this.store.select(selectSelectedTask);

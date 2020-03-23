@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Store } from '@ngrx/store';
-import { AppState } from './app.state';
+import { AppStore } from './app.state';
 import { selectState } from './app.selectors';
 import { first } from 'rxjs/operators';
 
@@ -9,7 +9,7 @@ import { first } from 'rxjs/operators';
 })
 
 export class AppService{
-    constructor(private store:Store<{app:AppState}>){}
+    constructor(private store:Store<AppStore>){}
 
     storeState(){
         this.store

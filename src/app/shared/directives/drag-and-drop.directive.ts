@@ -1,16 +1,11 @@
 import { Directive, ElementRef } from "@angular/core";
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
-import { selectTaskById, selectTasksByIds } from 'src/app/store/app.selectors';
-import {take, merge, first} from 'rxjs/operators';
-import { changeTask } from 'src/app/store/app.actions';
 
 @Directive({
     selector:'[dragAndDrop]'
 })
 
 export class DragAndDropDirective{
-    constructor(el: ElementRef, store:Store<{app:AppState}>){
+    constructor(el: ElementRef){
         let element = el.nativeElement;
         element.draggable = true;
 
