@@ -25,7 +25,7 @@ export function changeWeek(selectedWeek:string, changeBy:number){
 export function changeMonth(selectedWeek:string, changeBy:number){
     const {isoWeek, year} = splitSelectedWeek(selectedWeek);
 
-    let currentWeek = moment().set({year:year}).isoWeek(isoWeek)
+    let currentWeek = moment().set({year:year, isoWeek}).set({isoWeekday:1});
     let nextWeek = currentWeek.set({month:currentWeek.month() + changeBy, date:15});
     
     return `${nextWeek.isoWeek()}-${nextWeek.year()}`

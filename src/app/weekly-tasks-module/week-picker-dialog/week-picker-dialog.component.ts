@@ -31,9 +31,7 @@ export class WeekPickerDialogComponent{
             this.store.dispatch(toggleWeekPickerDialog())
         }
     }
-
     
-
     goBackwardOneMonth(){
         this.store.dispatch(changeSelectedWeekByMonth({changeBy:-1}))
     }
@@ -47,8 +45,7 @@ export class WeekPickerDialogComponent{
         // buffer squares have an empty string value for day
         if(day){
             let week = moment().set({date: +day, month: +month -1, year: +year}).set({isoWeekday:1})
-            console.log(`${week.isoWeek()}-${week.year()}`)
-            this.store.dispatch(setSelectedWeek({week:`${week.isoWeek()}-${week.year()}`}))
+            this.store.dispatch(setSelectedWeek({week:`${week.isoWeek()}-${week.isoWeekYear()}`}))
         }
     }
 }

@@ -8,8 +8,7 @@ export class GetDaysPipe implements PipeTransform{
     transform(value:string){
         const {isoWeek, year} = splitSelectedWeek(value);
 
-        moment().set({year, isoWeek}).set({day:1}).set({date:1})
-        let firstDayOfMonthMoment = moment().set({year, isoWeek}).set({day:1}).set({date:1}) //moment().isoWeek(isoWeek).year(year).day(1).date(1);
+        let firstDayOfMonthMoment = moment().set({year, isoWeek}).set({day:1}).set({date:1});
 
         let bufferLength = firstDayOfMonthMoment.isoWeekday() - 1;
         let monthArray = new Array(bufferLength).fill({day:''})

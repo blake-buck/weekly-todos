@@ -9,8 +9,8 @@ export class FormatWeekPipe implements PipeTransform{
         const {isoWeek, year} = splitSelectedWeek(value);
         let currentWeek = moment().set({'year':year}).isoWeek(isoWeek);
 
-        let firstDayOfWeek = moment(currentWeek).isoWeekday(1);
-        let lastDayOfWeek = moment(currentWeek).isoWeekday(7);
+        let firstDayOfWeek = moment(currentWeek).set({isoWeekday:1});
+        let lastDayOfWeek = moment(currentWeek).set({isoWeekday:7});
 
         // handles situations involving weeks starting in december and ending in january
         if(firstDayOfWeek.year() !== lastDayOfWeek.year()){
