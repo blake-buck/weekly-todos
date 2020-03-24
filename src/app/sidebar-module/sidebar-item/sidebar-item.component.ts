@@ -9,7 +9,7 @@ import { setSelectedWeek } from 'src/app/store/app.actions';
     styleUrls:['./sidebar-item.component.scss']
 })
 
-
+// displays a formatted week -- clicking this item sets that week as the selected week
 
 export class SidebarItemComponent{
     @Input() week:string;

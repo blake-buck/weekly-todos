@@ -10,6 +10,7 @@ import { toggleSidebar } from 'src/app/store/app.actions';
     styleUrls:['./sidebar.component.scss']
 })
 
+// Displays a list of weeks containing tasks
 export class SidebarComponent{
     constructor(private store:Store<AppStore>){}
     sidebarOpen$ = this.store.select(selectSidebarOpen);
