@@ -1,9 +1,7 @@
 @import 'shared/scss/variables';
 
 header{
-    position: relative;
     width:100%;
-
     display:grid;
     grid-template-columns: 44px auto;
     align-items:center;
@@ -12,6 +10,8 @@ header{
 
 .week-columns{
     display:flex;
-    min-width: 100vw;
-    overflow: auto;
+    max-width: 100vw;
+    height:100%;
+    overflow-x: auto;
+    overflow-y:hidden;
 }

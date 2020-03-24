@@ -1,6 +1,6 @@
 .week-column{
     min-width:250px;
-    
+    height:100%;
     margin:5px;
     padding:5px;
     border-left:2px dashed black;
@@ -19,8 +19,6 @@
         width:100%;
     }
     .week-column-body{
-        height:73vh;
-        max-height:73vh;
-        overflow:auto;
+        height:100%;
     }
 }
