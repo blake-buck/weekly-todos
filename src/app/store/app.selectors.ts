@@ -3,6 +3,7 @@ import { createSelector } from '@ngrx/store';
 
 export const selectState = (state:AppStore) => state.app;
 
+// Layout selectors
 export const selectSidebarOpen = createSelector(
     selectState,
     state => state.sidebarOpen
@@ -16,21 +17,22 @@ export const selectTaskDialogOpen = createSelector(
     state => state.taskDialogOpen
 )
 
+// Selected week selectors
 export const selectSelectedWeek = createSelector(
     selectState,
     state => state.selectedWeek
 )
 
 
+// Task selectors
 export const selectTasks = createSelector(
     selectState,
     state => state.tasks
 )
 
-export const selectTasksForWeekAndDay = (day:string) => createSelector(
-    selectTasks,
-    selectSelectedWeek,
-    (tasks, selectedWeek) => tasks.filter(task => task.week === selectedWeek && task.day === day)
+export const selectWeeksWithTasksInThem = createSelector(
+    selectState,
+    state => state.weeksWithTasksInThem
 )
 
 export const selectSelectedTask = createSelector(
@@ -48,7 +50,9 @@ export const selectTasksByIds = (ids: number[]) => createSelector(
     state => state.tasks.filter(task => ids.includes(task.id))
 )
 
-export const selectWeeksWithTasksInThem = createSelector(
-    selectState,
-    state => state.weeksWithTasksInThem
+export const selectTasksForWeekAndDay = (day:string) => createSelector(
+    selectTasks,
+    selectSelectedWeek,
+    (tasks, selectedWeek) => tasks.filter(task => task.week === selectedWeek && task.day === day)
 )
+

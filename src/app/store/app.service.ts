@@ -12,6 +12,7 @@ import { changeTask } from './app.actions';
 export class AppService{
     constructor(private store:Store<AppStore>){}
 
+    // store state in web storage under key 'state'
     storeState(){
         this.store
             .select(selectState)
@@ -21,6 +22,7 @@ export class AppService{
             })
     }
 
+    // get state from web storage
     getStateFromStorage(){
         let stateString = localStorage.getItem('state')
         return JSON.parse(stateString)

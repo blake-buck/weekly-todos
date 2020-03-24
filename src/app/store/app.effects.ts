@@ -11,6 +11,7 @@ import { AppStore } from './app.state';
 export class AppEffects{
     constructor(private actions$:Actions, private appService:AppService, private store:Store<AppStore>){}
 
+    // After every action that isn't initialization or getting state from storage, store the updated state
     sendStateToStorage$ = createEffect(
         () => 
             this.actions$
