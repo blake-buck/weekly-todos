@@ -4,10 +4,12 @@ import { splitSelectedWeek } from 'src/app/utils';
 
 @Pipe({name:'formatWeek'})
 
+// used in week-picker-dialog.component.html, sidebar-item.component.html
 export class FormatWeekPipe implements PipeTransform{
-    transform(value:string){
-        const {isoWeek, year} = splitSelectedWeek(value);
-        let currentWeek = moment().set({'year':year}).isoWeek(isoWeek);
+    transform(selectedWeek:string){
+        const {isoWeek, year} = splitSelectedWeek(selectedWeek);
+        
+        let currentWeek = moment().set({year}).set({isoWeek});
 
         let firstDayOfWeek = moment(currentWeek).set({isoWeekday:1});
         let lastDayOfWeek = moment(currentWeek).set({isoWeekday:7});

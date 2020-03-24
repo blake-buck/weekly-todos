@@ -16,7 +16,7 @@
                 <span class='day-header'>Fr</span>
                 <span class='day-header'>Sa</span>
                 <span class='day-header'>Su</span>
-                <span *ngFor='let dayObj of (selectedWeek | getDaysPipe)' (click)='setSelectedWeek(dayObj)'>{{dayObj.day}}</span>
+                <span *ngFor='let dayObj of (selectedWeek | getDaysPipe)' (click)='setSelectedWeek(dayObj)'>{{dayObj.date}}</span>
             </div>
         </main>
 

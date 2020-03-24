@@ -4,6 +4,7 @@ import { Directive, ElementRef } from '@angular/core';
     selector:'[wtAutofocus]'
 })
 
+// used in task.component.html
 export class AutofocusDirective{
     constructor(el:ElementRef){
         if(!el.nativeElement.disabled){

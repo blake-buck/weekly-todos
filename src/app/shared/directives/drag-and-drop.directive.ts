@@ -4,6 +4,7 @@ import { Directive, ElementRef, Input } from "@angular/core";
     selector:'[draggableItem]'
 })
 
+// used in task.component.html
 export class DragAndDropDirective{
 
     // Data must come in as a string, it can be parsed at the drop target

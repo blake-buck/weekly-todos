@@ -40,11 +40,11 @@ export class WeekPickerDialogComponent{
         this.store.dispatch(changeSelectedWeekByMonth({changeBy:1}))
     }
 
-    setSelectedWeek(dayObj:{day:string, month:string, year:string}){
-        const {day, month, year} = dayObj;
+    setSelectedWeek(dayObj:{date:string, month:string, year:string}){
+        const {date, month, year} = dayObj;
         // buffer squares have an empty string value for day
-        if(day){
-            let week = moment().set({date: +day, month: +month -1, year: +year}).set({isoWeekday:1})
+        if(date){
+            let week = moment().set({date: +date, month: +month -1, year: +year}).set({isoWeekday:1})
             this.store.dispatch(setSelectedWeek({week:`${week.isoWeek()}-${week.isoWeekYear()}`}))
         }
     }

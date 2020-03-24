@@ -3,10 +3,11 @@ import { splitSelectedWeek } from 'src/app/utils';
 
 @Pipe({name:'orderByDate'})
 
+// used in sidebar.component.html
 export class OrderByDatePipe implements PipeTransform{
-    transform(value:string[]){
-        let newVal = [...value]
-        newVal = newVal.sort((a, b) => {
+    transform(selectedWeeks:string[]){
+        let sortedWeeks = [...selectedWeeks]
+        sortedWeeks = sortedWeeks.sort((a, b) => {
             let firstValue = splitSelectedWeek(a);
             let secondValue = splitSelectedWeek(b);
 
@@ -26,6 +27,6 @@ export class OrderByDatePipe implements PipeTransform{
             
             return 0
         })
-        return newVal
+        return sortedWeeks
     }
 }
