@@ -6,7 +6,7 @@
         class='week-column-body' 
 
         dropTarget
-        [dayOfWeek]='dayOfWeek'
+        [dropData]='{dayOfWeek:dayOfWeek, isWeekColumn:true}'
     >
         <task *ngFor='let task of tasks' [task]='task'></task>
     </div>
