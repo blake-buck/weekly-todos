@@ -12,10 +12,12 @@ import { selectTasksForWeekAndDay } from 'src/app/store/app.selectors';
 
 export class WeekColumnComponent{
     @Input() dayOfWeek:string;
-    tasks$ 
+    
 
     constructor(private store:Store<AppStore>){}
 
+    // tasks$ need to be selected in ngOnInit, otherwise dayOfWeek comes in undefined
+    tasks$ 
     ngOnInit(){
         this.tasks$ = this.store.select(selectTasksForWeekAndDay(this.dayOfWeek))
     }
@@ -25,6 +27,7 @@ export class WeekColumnComponent{
             // these are handled in the reducer
             id:-1,
             week:'',
+            // ********************************
 
 
             day:this.dayOfWeek,

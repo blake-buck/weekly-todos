@@ -18,19 +18,6 @@ export class WeekPickerDialogComponent{
 
     selectedWeek$ = this.store.select(selectSelectedWeek);
     dialogOpen$ = this.store.select(selectWeekPickerDialogOpen);
-
-    canCloseDialog = true;
-    // if user clicks inside dialog, prevent dialog from closing
-    preventDialogClose(){
-        this.canCloseDialog = false;
-        setTimeout(() => this.canCloseDialog = true, 200)
-    }
-    // if user clicks outside dialog, close dialog
-    closeDialog(){
-        if(this.canCloseDialog){
-            this.store.dispatch(toggleWeekPickerDialog())
-        }
-    }
     
     goBackwardOneMonth(){
         this.store.dispatch(changeSelectedWeekByMonth({changeBy:-1}))
@@ -42,10 +29,27 @@ export class WeekPickerDialogComponent{
 
     setSelectedWeek(dayObj:{date:string, month:string, year:string}){
         const {date, month, year} = dayObj;
-        // buffer squares have an empty string value for day
+        // buffer squares have an empty string value for date
         if(date){
+            // months are zero-indexed in momentjs, hence the '- 1'
             let week = moment().set({date: +date, month: +month -1, year: +year}).set({isoWeekday:1})
             this.store.dispatch(setSelectedWeek({week:`${week.isoWeek()}-${week.isoWeekYear()}`}))
+        }
+    }
+
+
+
+
+    canCloseDialog = true;
+    // if user clicks inside dialog, prevent dialog from closing
+    preventDialogClose(){
+        this.canCloseDialog = false;
+        setTimeout(() => this.canCloseDialog = true, 200)
+    }
+    // if user clicks outside dialog, close dialog
+    closeDialog(){
+        if(this.canCloseDialog){
+            this.store.dispatch(toggleWeekPickerDialog())
         }
     }
 }

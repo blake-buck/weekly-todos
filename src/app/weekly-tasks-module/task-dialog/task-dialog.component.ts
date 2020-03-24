@@ -18,6 +18,7 @@ export class TaskDialogComponent{
     selectedTask$ = this.store.select(selectSelectedTask);
     BACKGROUND_COLORS = BACKGROUND_COLORS;
 
+    // if Enter key is pressed, prevent newline from being added to text, and blur the textarea
     handleKeydown(task:Task, event:KeyboardEvent){
         if(event.key === 'Enter'){
             event.preventDefault();
@@ -28,16 +29,19 @@ export class TaskDialogComponent{
 
     blur(task:Task, taskText:string){
         const newTask = {...task, taskText}
+        // Whenever the task is changed, the selected task needs to updated as well
         this.store.dispatch(changeTask({task: {...newTask}}))
         this.store.dispatch(setSelectedTask({task: {...newTask}}))
     }
 
     toggleComplete(task:Task){
         const newTask = {...task, complete:!task.complete}
+        // Whenever the task is changed, the selected task needs to updated as well
         this.store.dispatch(changeTask({task: {...newTask}}))
         this.store.dispatch(setSelectedTask({task: {...newTask}}))
     }
 
+    // controls whether the custom background-color selection element is being displayed
     displaySelect = false;
     toggleDisplaySelect(){
         this.displaySelect = !this.displaySelect

@@ -7,18 +7,20 @@
     draggableItem 
     [transferData]='{taskId:task.id, isTask:true}'
 
-    [attr.data-id]='task.id' 
     (click)='openDialog()'
 >
     <textarea 
+        class='task-textarea'
+
         [ngStyle]='{"background":task.backgroundColor}'
-        [attr.data-id]='task.id'
+
         wtAutofocus
+
         [value]='task.taskText' 
-        (keydown)='handleKeydown($event)'
-        (blur)='blur($event.target.value)'
         [rows]='2'
         [readonly]='!task.isEditing'
-        class='task-textarea'
+        
+        (keydown)='handleKeydown($event)'
+        (blur)='blur($event.target.value)'
     ></textarea>
 </div>

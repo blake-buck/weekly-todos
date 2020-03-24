@@ -14,6 +14,7 @@ export class TaskComponent {
 
     constructor(private store:Store<AppStore>){}
 
+    // if Enter key is pressed, prevent newline from being added to text, and blur the textarea
     handleKeydown(event:KeyboardEvent){
         if(event.key === 'Enter'){
             event.preventDefault();
