@@ -22,7 +22,21 @@ const _appReducer = createReducer(
     // Task Actions
     on(addTask, (state, action) => ({
         ...state, 
-        tasks:[...state.tasks, {...action.task, id:state.nextTaskId, week:state.selectedWeek}],
+        tasks:[
+            ...state.tasks, 
+            {
+                week:state.selectedWeek,
+                day: action.dayOfWeek,
+
+                time:'',
+                taskText:'',
+
+                backgroundColor:'',
+                complete:false,
+                isEditing:true,
+                id:state.nextTaskId, 
+            }
+        ],
         weeksWithTasksInThem:state.weeksWithTasksInThem.includes(state.selectedWeek) ? state.weeksWithTasksInThem : [...state.weeksWithTasksInThem, state.selectedWeek],
         nextTaskId:state.nextTaskId+1
     })),

@@ -23,22 +23,6 @@ export class WeekColumnComponent{
     }
 
     addTask(){
-        const task = {
-            // these are handled in the reducer
-            id:-1,
-            week:'',
-            // ********************************
-
-
-            day:this.dayOfWeek,
-
-            time:'',
-            taskText:'',
-
-            backgroundColor:'',
-            complete:false,
-            isEditing:true
-        }
-        this.store.dispatch(addTask({task}))
+        this.store.dispatch(addTask({dayOfWeek: this.dayOfWeek}))
     }
 }

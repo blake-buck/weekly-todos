@@ -3,7 +3,7 @@ import { Task, AppState } from './app.state';
 
 
 // Actions revolving around tasks
-export const addTask                    = createAction('ADD TASK', props<{task:Task}>());
+export const addTask                    = createAction('ADD TASK', props<{dayOfWeek:string}>());
 export const changeTask                 = createAction('CHANGE TASK', props<{task:Task}>());
 export const deleteTask                 = createAction('DELETE TASK', props<{taskId:number}>());
 export const setSelectedTask            = createAction('SET SELECTED TASK', props<{task:Task | null}>());

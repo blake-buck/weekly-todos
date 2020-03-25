@@ -92,22 +92,7 @@ describe('AppReducer', async () => {
 
     // Task Actions
     it('addTask should add a new task', () => {
-        const task = {
-            // these are handled in the reducer
-            id:-1,
-            week:'',
-            // ********************************
-
-            day:'Monday',
-
-            taskText:'',
-
-            backgroundColor:'',
-            complete:false,
-            isEditing:true
-        }
-
-        const firstState = appReducer(initState, addTask({task}))
+        const firstState = appReducer(initState, addTask({dayOfWeek:'Monday'}))
         const newTask = firstState.tasks[0]
 
         expect(newTask).toBeTruthy()
