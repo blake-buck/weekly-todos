@@ -1,5 +1,5 @@
-<div class='dialog-backdrop' (click)='closeDialog()' [ngClass]="{'open': dialogOpen$ | async }">
-    <div class='dialog-box' (click)='preventDialogClose()' *ngIf='selectedTask$ | async as task'>
+<div class='dialog-backdrop' (click)='closeDialog()' *ngIf='selectedTask$ | async as task' [ngClass]="{'open': dialogOpen$ | async }">
+    <div class='dialog-box' (click)='preventDialogClose()'>
 
         <main>
             <div class='task'>

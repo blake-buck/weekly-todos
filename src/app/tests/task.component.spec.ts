@@ -65,7 +65,6 @@ describe('TaskComponent', () => {
         }
         fixture.detectChanges();
 
-        console.log("AHHHHH ", fixture.debugElement.query(By.css('div')).nativeElement.style)
         expect(fixture.debugElement.query(By.css('div')).nativeElement.style.background).toBeTruthy();
         expect(fixture.debugElement.query(By.css('textarea')).nativeElement.style.background).toBeTruthy()
     })
