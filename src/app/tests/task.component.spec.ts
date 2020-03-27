@@ -73,4 +73,5 @@ describe('TaskComponent', () => {
         expect(fixture.debugElement.query(By.css('textarea')).nativeElement.value).toEqual(comp.task.taskText);
     })
 
+    afterAll(() => { fixture.nativeElement.remove()})
 })

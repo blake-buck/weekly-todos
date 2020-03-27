@@ -70,4 +70,6 @@ describe('TaskDialog', () => {
     it('textarea value should equal task.taskText', () => {
         expect(fixture.debugElement.query(By.css('textarea')).nativeElement.value).toEqual('blah blah blah');
     })
+
+    afterAll(() => { fixture.nativeElement.remove()})
 })

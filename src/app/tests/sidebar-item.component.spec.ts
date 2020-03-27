@@ -38,4 +38,6 @@ describe('SidebarItem', () => {
         expect(fixture.debugElement.query(By.css('div')).nativeElement.textContent.trim()).toBe('Jan 03 - Jan 09, 2000');
     })
 
+    afterAll(() => { fixture.nativeElement.remove()})
+
 })

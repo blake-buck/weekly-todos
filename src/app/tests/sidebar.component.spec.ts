@@ -63,5 +63,5 @@ describe('Sidebar Component', () => {
         expect(fixture.debugElement.query(By.css('.open'))).toBeFalsy()
     })
 
-    
+    afterAll(() => { fixture.nativeElement.remove()})
 })

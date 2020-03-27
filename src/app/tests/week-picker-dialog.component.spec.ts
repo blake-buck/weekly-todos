@@ -44,4 +44,5 @@ describe('Week Picker Dialog', () => {
         expect(fixture.debugElement.query(By.css('div.dialog-backdrop.open'))).toBeTruthy();
     })
 
+    afterAll(() => { fixture.nativeElement.remove()})
 })

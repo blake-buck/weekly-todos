@@ -47,5 +47,5 @@ describe('Week Column Component', () => {
         expect(fixture.debugElement.query(By.css('header')).nativeElement.textContent).toBe('Friday')
     })
 
-    
+    afterAll(() => { fixture.nativeElement.remove()})
 })

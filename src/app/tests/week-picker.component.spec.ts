@@ -40,4 +40,6 @@ describe('WeekPickerComponent', () => {
     it('week should be formatted properly', () => {
         expect(fixture.debugElement.query(By.css('span')).nativeElement.textContent.trim()).toBe('Jan 03 - Jan 09, 2000');
     })
+// 
+    afterAll(() => { fixture.nativeElement.remove()})
 })
