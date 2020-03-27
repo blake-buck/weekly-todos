@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Store } from '@ngrx/store';
-import { AppState, AppStore } from 'src/app/store/app.state';
+import { AppStore } from 'src/app/store/app.state';
 import { toggleWeekPickerDialog, changeSelectedWeekByMonth, setSelectedWeek } from 'src/app/store/app.actions';
 import { selectWeekPickerDialogOpen, selectSelectedWeek } from 'src/app/store/app.selectors';
 import * as moment from 'moment';
